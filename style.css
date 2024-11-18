@@ -7,76 +7,159 @@
     619B8A zomp
 */
 
-body {
+htmnl, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;   
+    color: white;
+    
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(130deg, #233D4D, #619B8A);
     padding: 10px;
+    background-image: linear-gradient(130deg, #233D4D, #619B8A);
+    box-sizing: border-box;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    color: white;
+    border-radius: 30px;
+    margin: 0px auto; /* Center it */
+    padding: 10px 20px; 
+    width: 100%; 
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#save_button {
+    color: white;
+    max-width: 100%;
+    flex-shrink: 0; /* Prevent shrinking */
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: #82b0a2;
+    padding: 10px 15px; /* Adjust button size */
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0px 10px;
+}
+
+#about_button {
+    color: white;
+    max-width: 100%;
+    flex-shrink: 0; /* Prevent shrinking */
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: #82b0a2;
+    padding: 10px 15px; /* Adjust button size */
+    border-radius: 30px;
+    font-size: 14px;
+    margin: 0px 10px;
+    cursor: pointer;
 }
 
 .main_window {
     background-color: white;
     border-radius: 10px;
     width: 100%;
-    max-width: 80%;
-    margin: 100px auto 20px;
+    max-width: 95%;
     padding: 40px 30px 70px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    border-radius: 20px;
 }
 
 .main_window h1 {
-    font-size: 42px;
+    font-size: 60px;
     font-weight: bold;
     display: flex;
     align-items: center;
     margin-bottom: 65px;
     color: #619B8A;
+    overflow-wrap: break-word;
 }
 
 #icon {
+    margin-right: 10px;
     margin-left: 10px;
-    width: 50px;
+    width: 100px;
+    overflow: hidden;
 }
 
 .row {
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
     align-items: center;
     justify-content: space-between;
     background-color: #82b0a2;
     color: white;
     border-radius: 30px;
+    margin: 0 auto; /* Center it */
+    padding: 10px 20px; 
+    width: 100%; 
+    max-width: 100%;
+    box-sizing: border-box;
+    gap: 10px; /* Add space between wrapped items */
 }
 
 .input_box {
+    flex: 1; /* Allow the input to grow and fill space */
+    max-width: calc(100% - 120px); /* Ensure space for the button */
+    min-width: 0; /* Prevent it from overflowing */
     color: white;
-    text-align: center;
-    font-weight: bold;
-    font-size: 18px;
-    flex: 1;
+    font-size: 14px;
     border: none;
     outline: none;
+    text-align: center;
     background: transparent;
-    padding: 5px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    box-sizing: border-box;
 }
 
 #add_button {
+    flex-shrink: 0; /* Prevent the button from shrinking */
     font-weight: bold;
     border: none;
     outline: none;
     background-color: #c1c1c1;
-    padding: 20px 40px;
+    padding: 10px 20px; /* Adjust button size */
     border-radius: 30px;
     font-size: 14px;
     cursor: pointer;
+    margin-left: 10px; /* Add space between button and inputs */
+    max-width: 100px; /* Prevent the button from becoming too large */
+}
+
+#add_button:hover {
+    background-color: #797979;
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 1024px) {
+    .main_window h1 {
+        font-size: 70px;
+    }
+    .input_box {
+        font-size: 18px;
+    }
+    #add_button {
+        font-size: 18px;
+        max-width: 150px; /* Allow slightly larger button on desktops */
+    }
 }
 
 #add_button:hover {
@@ -118,6 +201,7 @@ body {
 #list_container .item_input_box:hover {
     background-color: #9bc0b4;
 }
+
 .x_button {
     display: flex;
     width: 20px;
@@ -132,4 +216,32 @@ body {
 
 .x_button:hover {
     background-color: #797979;
+}
+
+@media(min-width: 1024px) {
+    .main_window {
+        background-color: white;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 95%;
+        padding: 40px 30px 70px;
+        box-sizing: border-box;
+        margin-top: 50px;
+        border-radius: 20px;
+    }
+
+    .input_box {
+        max-width: 100%;
+        color: white;
+        font-size: 22px;
+        border: none;
+        outline: none;
+        text-align: center;
+        background: transparent;
+        box-sizing: border-box;
+    }
+
+    #add_button {
+        font-size: 18px;
+    }
 }
